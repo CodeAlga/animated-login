@@ -1,22 +1,33 @@
-import { render } from "node-sass";
-import React, { createContext, Component } from "react";
+import React, { createContext, useState } from "react";
 
 export const GlobalContext = createContext();
 
-class GlobalContextProvider extends Component {
-  state = {
+const GlobalContextProvider = ({ children }) => {
+  const [globalContext, setGlobalContext] = usesSate({
     petition: "",
     id: "",
     authenticated: false,
-  };
+    loading: false,
+  });
 
-  render() {
-    return (
-      <GlobalContext.Provider value={{ ...this.state }}>
-        {this.props.children}
-      </GlobalContext.Provider>
-    );
+  function handleContextState(data) {
+    setGlobalContext(data);
   }
-}
+
+  function clearContext() {
+    setGlobalContext({
+      petition: "",
+      id: "",
+      authenticated: false,
+      loading: false,
+    });
+  }
+
+  return (
+    <GlobalContext.Provider value={{ globalContext, handleContextState }}>
+      {this.props.children}
+    </GlobalContext.Provider>
+  );
+};
 
 export default GlobalContextProvider;
