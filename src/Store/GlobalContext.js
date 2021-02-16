@@ -1,9 +1,10 @@
 import React, { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
 export const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
-  const [globalContext, setGlobalContext] = usesSate({
+  const [globalContext, setGlobalContext] = useState({
     petition: "",
     id: "",
     authenticated: false,
@@ -24,10 +25,16 @@ const GlobalContextProvider = ({ children }) => {
   }
 
   return (
-    <GlobalContext.Provider value={{ globalContext, handleContextState }}>
-      {this.props.children}
+    <GlobalContext.Provider
+      value={{ globalContext, handleContextState, clearContext }}
+    >
+      {children}
     </GlobalContext.Provider>
   );
 };
 
 export default GlobalContextProvider;
+
+GlobalContextProvider.propTypes = {
+  children: PropTypes.element.isRequired,
+};
