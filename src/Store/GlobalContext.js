@@ -36,5 +36,9 @@ const GlobalContextProvider = ({ children }) => {
 export default GlobalContextProvider;
 
 GlobalContextProvider.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element),
+};
+
+GlobalContextProvider.defaultProps = {
+  children: {},
 };
