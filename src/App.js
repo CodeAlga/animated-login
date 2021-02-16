@@ -3,20 +3,18 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import GlobalContextProvider from "./Store/GlobalContext";
 
-import Id from "./Components/ID";
+import Id from "./Components/Id";
 import Validation from "./Components/Validation";
 import Result from "./Components/Resultado";
-
-import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <div className="App">
+        <div className="app">
           <GlobalContextProvider>
             <Route path="/{peticion}" component={Id} />
-            <Route path="/{peticion}/{dni}" component={Validacion} />
+            <Route path="/{peticion}/{dni}" component={Validation} />
             <Route path="/{peticion}/{dni}/resultado" component={Result} />
           </GlobalContextProvider>
         </div>
