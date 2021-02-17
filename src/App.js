@@ -24,3 +24,7 @@ function App() {
 }
 
 export default App;
+
+// This front end was designed looking at this tutorial
+// https://www.youtube.com/watch?v=-bll7l-BKQI
+
