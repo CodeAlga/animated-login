@@ -13,9 +13,9 @@ function App() {
       <Switch>
         <div className="app">
           <GlobalContextProvider>
-            <Route path="/{peticion}" component={Id} />
-            <Route path="/{peticion}/{dni}" component={Validation} />
-            <Route path="/{peticion}/{dni}/resultado" component={Result} />
+            <Route path="/peticion" component={Id} />
+            <Route path="/validate" component={Validation} />
+            <Route path="/result" component={Result} />
           </GlobalContextProvider>
         </div>
       </Switch>
